@@ -1,12 +1,9 @@
 package com.example.football_manager_web.entity;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
-
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -14,7 +11,7 @@ import javax.persistence.*;
 @Table
 public class Player {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "first_name")
     private String firstName;
@@ -24,8 +21,8 @@ public class Player {
     private Integer age;
     private Integer experience;
     @JsonBackReference
-    @ManyToOne(cascade= { CascadeType.ALL})
-    @JoinColumn(name = "team_id")
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "team_id", nullable = true)
     private Team team;
 
 

@@ -1,10 +1,8 @@
 package com.example.football_manager_web.service;
-
 import com.example.football_manager_web.entity.Team;
 import com.example.football_manager_web.repository.TeamRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
