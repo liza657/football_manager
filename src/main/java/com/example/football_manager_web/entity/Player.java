@@ -13,11 +13,8 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "first_name")
-    private String firstName;
-    @Column(name = "last_name")
-    private String lastName;
-    private Integer height;
+    private String name;
+
     private Integer age;
     private Integer experience;
     @JsonBackReference

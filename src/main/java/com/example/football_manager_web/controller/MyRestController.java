@@ -68,7 +68,7 @@ public class MyRestController {
     }
 
     @PutMapping("/players")
-    public ResponseEntity<String> updatePlayer( @RequestBody Player player) {
+    public ResponseEntity<String> updatePlayer(@RequestBody Player player) {
         playerService.updatePlayer(player);
         return ResponseEntity.ok().body(String.format("player:[{}] was successfully updated", player));
 
@@ -78,6 +78,12 @@ public class MyRestController {
     public ResponseEntity<String> deletePlayer(@PathVariable Integer id) {
         playerService.deletePlayer(id);
         return ResponseEntity.ok().body(String.format("player with id:%d was successfully deleted", id));
+    }
 
+    @PutMapping("/transfer")
+    public void transfer(@RequestBody Player player,@RequestBody Team sellerTeam, @RequestBody Team buyerTeam) {
+        playerService.updatePlayer(player);
+        teamService.updateTeam(sellerTeam);
+        teamService.updateTeam(buyerTeam);
     }
 }
